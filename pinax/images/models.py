@@ -4,8 +4,11 @@ from django.conf import settings
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
+<<<<<<< HEAD
 from django.utils.encoding import python_2_unicode_compatible
 from django.conf import Settings
+=======
+>>>>>>> upstream
 
 from imagekit.models import ImageSpecField
 from optimized_image.fields import OptimizedImageField
@@ -15,7 +18,7 @@ def image_upload_to(instance, filename):
     instance.original_filename = filename
     uid = str(uuid.uuid4())
     ext = filename.split(".")[-1].lower()
-    return "pinax-images/image-set-{}/{}.{}".format(instance.image_set.pk, uid, ext)
+    return f"pinax-images/image-set-{instance.image_set.pk}/{uid}.{ext}"
 
 
 class ImageSet(models.Model):
@@ -35,7 +38,6 @@ class ImageSet(models.Model):
         }
 
 
-@python_2_unicode_compatible
 class Image(models.Model):
     image_set = models.ForeignKey(ImageSet, related_name="images", on_delete=models.CASCADE)
     image = OptimizedImageField(upload_to=image_upload_to)

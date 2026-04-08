@@ -1,8 +1,11 @@
+from unittest import mock
+
 from django.core.files import File
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.urls import reverse
 
-from ..compat import mock
+from imagekit.registry import generator_registry
+
 from ..models import Image
 from .test import TestCase
 
@@ -62,7 +65,7 @@ class ImageSetUploadView(TestCase):
             self.assertEqual(self.user.images.get().image_set, image_set)
 
 
-class ImageSetMixin(object):
+class ImageSetMixin:
 
     def setUp(self):
         self.user = self.make_user("arthur")
@@ -83,7 +86,7 @@ class ImageSetMixin(object):
 class ImageSetDetailView(ImageSetMixin, TestCase):
 
     def setUp(self):
-        super(ImageSetDetailView, self).setUp()
+        super().setUp()
         self.view_url = "pinax_images:imageset_detail"
 
     def test_detail_by_anonymous(self):
@@ -120,7 +123,7 @@ class ImageSetDetailView(ImageSetMixin, TestCase):
 class ImageDeleteView(ImageSetMixin, TestCase):
 
     def setUp(self):
-        super(ImageDeleteView, self).setUp()
+        super().setUp()
         self.view_url = "pinax_images:image_delete"
 
     def test_delete_by_anonymous(self):
@@ -161,7 +164,7 @@ class ImageDeleteView(ImageSetMixin, TestCase):
 class ImageTogglePrimaryView(ImageSetMixin, TestCase):
 
     def setUp(self):
-        super(ImageTogglePrimaryView, self).setUp()
+        super().setUp()
         self.view_url = "pinax_images:image_make_primary"
 
     def test_toggle_by_anonymous(self):
@@ -211,3 +214,15 @@ class ImageTogglePrimaryView(ImageSetMixin, TestCase):
         with self.login(self.user):
             self.post(self.view_url, 555)
             self.response_404()
+
+
+class TestImageSpecs(TestCase):
+
+    def test_registered_specs(self):
+        self.assertEqual(list(generator_registry.get_ids()), [
+            "imagekit:thumbnail",
+            "pinax_images:image:thumbnail",
+            "pinax_images:image:list_thumbnail",
+            "pinax_images:image:small_thumbnail",
+            "pinax_images:image:medium_thumbnail"
+        ])

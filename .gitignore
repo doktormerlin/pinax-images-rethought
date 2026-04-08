@@ -7,7 +7,6 @@ pinax-images
 __pycache__/
 *.py[cod]
 
-
 # Distribution / packaging
 .Python
 env/
@@ -28,6 +27,10 @@ var/
 .python-version
 *.pypirc
 
+# Pipfile
+Pipfile
+Pipfile.lock
+
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
@@ -36,6 +39,7 @@ pip-delete-this-directory.txt
 htmlcov/
 .tox/
 .coverage
+.coveragerc
 .cache
 nosetests.xml
 coverage.xml
