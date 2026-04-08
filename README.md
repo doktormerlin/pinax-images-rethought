@@ -4,18 +4,15 @@ This is a fork of [Pinax Images](https://github.com/pinax/pinax-images) with som
 
 ## Changes
 
-<<<<<<< HEAD
 1. Removed "preview" field in Admin.py. The <img/> Tag did not work and there already is a clickable link to the image in the Image field
 2. Added "ID" readonly field to the inline-admin, so that [pinax-blog](https://github.com/pinax/pinax-blog) images are usable again.
 3. Added "Alt text" field to make alt-texts in template possible
 4. Added image optimization using [django-optimized-image](https://pypi.org/project/django-optimized-image/)
-=======
 [![Build](https://github.com/pinax/pinax-images/actions/workflows/ci.yaml/badge.svg)](https://github.com/pinax/pinax-images/actions)
 [![Codecov](https://img.shields.io/codecov/c/github/pinax/pinax-images.svg)](https://codecov.io/gh/pinax/pinax-images)
 [![](https://img.shields.io/github/contributors/pinax/pinax-images.svg)](https://github.com/pinax/pinax-images/graphs/contributors)
 [![](https://img.shields.io/github/issues-pr/pinax/pinax-images.svg)](https://github.com/pinax/pinax-images/pulls)
 [![](https://img.shields.io/github/issues-pr-closed/pinax/pinax-images.svg)](https://github.com/pinax/pinax-images/pulls?q=is%3Apr+is%3Aclosed)
->>>>>>> upstream
 
 ## Installation
 
@@ -23,9 +20,6 @@ So far, the only way to install it, is to install it from source.
 
 **If you want to use it together with pinax-blog, you have to install the [original pinax-images package](https://github.com/pinax/pinax-images) first!**
 
-<<<<<<< HEAD
-### Using Pip
-=======
 * [About Pinax](#about-pinax)
 * [Important Links](#important-links)
 * [Overview](#overview)
@@ -40,7 +34,6 @@ So far, the only way to install it, is to install it from source.
 * [Code of Conduct](#code-of-conduct)
 * [Connect with Pinax](#connect-with-pinax)
 * [License](#license)
->>>>>>> upstream
 
 1. Open a commandline
 2. Install the package with `pip install git+https://github.com/doktormerlin/pinax-images-rethought.git`
@@ -53,9 +46,6 @@ So far, the only way to install it, is to install it from source.
 3. Install the package using `python setup.py install`
 
 
-<<<<<<< HEAD
-## Usage
-=======
 ## Important Links
 
 Where you can find what you need:
@@ -68,13 +58,9 @@ Where you can find what you need:
 
 
 ## pinax-images
->>>>>>> upstream
 
 Add `OPTIMIZED_IMAGE_METHOD = 'pillow'` to your settings.py
 
-<<<<<<< HEAD
-For other usage, please take a look at the [original README file](README_original.md)
-=======
 `pinax-images` is an app for managing collections of images associated with any content object.
 
 #### Dependencies
@@ -289,4 +275,3 @@ For updates and news regarding the Pinax Project, please follow us on Twitter [@
 ## License
 
 Copyright (c) 2012-present James Tauber and contributors under the [MIT license](https://opensource.org/licenses/MIT).
->>>>>>> upstream
